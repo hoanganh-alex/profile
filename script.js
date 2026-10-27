@@ -488,7 +488,7 @@ function initMouseEffects() {
             spotlight.style.setProperty('--mouse-y', `${mouseY}px`);
         }
 
-        if (CONFIG.effects && CONFIG.effects.enableTilt && tiltContainer) {
+        if (CONFIG.effects && CONFIG.effects.enableTilt && tiltContainer && window.innerWidth > 900) {
             const centerX = window.innerWidth / 2;
             const centerY = window.innerHeight / 2;
             const maxTilt = 2.8;
@@ -548,9 +548,13 @@ function initMouseEffects() {
         }
 
         if (CONFIG.effects && CONFIG.effects.enableTilt && tiltContainer) {
-            currentTiltX += (targetTiltX - currentTiltX) * 0.08;
-            currentTiltY += (targetTiltY - currentTiltY) * 0.08;
-            tiltContainer.style.transform = `rotateX(${currentTiltX.toFixed(2)}deg) rotateY(${currentTiltY.toFixed(2)}deg)`;
+            if (window.innerWidth > 900) {
+                currentTiltX += (targetTiltX - currentTiltX) * 0.08;
+                currentTiltY += (targetTiltY - currentTiltY) * 0.08;
+                tiltContainer.style.transform = `rotateX(${currentTiltX.toFixed(2)}deg) rotateY(${currentTiltY.toFixed(2)}deg)`;
+            } else if (tiltContainer.style.transform) {
+                tiltContainer.style.transform = '';
+            }
         }
 
         requestAnimationFrame(renderCursorAndTilt);
