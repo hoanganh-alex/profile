@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Hoàng Anh (Alex) • Profile</title>
+    <meta name="description" content="Trang cá nhân của Nguyễn Hoàng Anh (Alex) - Full Stack Developer @ Google.">
+    <meta property="og:title" content="Nguyễn Hoàng Anh (Alex) • Profile">
+    <meta property="og:description" content="Full Stack Developer @ Google • AI Engineer & Security.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="avatar.png">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=9.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=9.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=9.0">
+    <link rel="shortcut icon" href="favicon.ico?v=9.0">
+
+    <link rel="stylesheet" href="style.css?v=16.0">
+</head>
+
+<body>
+    
+    <canvas id="bg-canvas"></canvas>
+
+    <div id="mouse-spotlight"></div>
+
+    <div id="cursor-dot" class="cursor-dot"></div>
+    <div id="cyber-cursor" class="cyber-cursor">
+        <div class="cursor-ring-halo"></div>
+        <div class="cursor-crosshair"></div>
+        <div class="cursor-brackets">
+            <span class="corner c-tl"></span>
+            <span class="corner c-tr"></span>
+            <span class="corner c-br"></span>
+            <span class="corner c-bl"></span>
+        </div>
+        <div class="cursor-diamond"></div>
+    </div>
+
+    <div class="floating-top-actions">
+        <button id="theme-toggle-btn" class="theme-toggle-btn" title="Chuyển đổi Dark / Light Theme" aria-label="Toggle Theme">
+            <i class="fa-solid fa-sun" id="theme-icon"></i>
+            <span class="theme-label" id="theme-label">LIGHT</span>
+        </button>
+    </div>
+
+    <div id="enter-overlay" class="enter-overlay">
+        
+        <div class="evo-drl-stage" id="evo-drl-stage" aria-hidden="true">
+            
+            <div class="evo-blade-cluster evo-blade-left">
+                <svg class="evo-blade-svg" viewBox="0 0 200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="evoBladeGradL" x1="100%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" />
+                            <stop offset="25%" stop-color="#00f0ff" />
+                            <stop offset="70%" stop-color="#00d2ff" />
+                            <stop offset="100%" stop-color="#0284c7" />
+                        </linearGradient>
+                        <filter id="evoGlowL" x="-40%" y="-40%" width="180%" height="180%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur1" />
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur2" />
+                            <feMerge>
+                                <feMergeNode in="blur2" />
+                                <feMergeNode in="blur1" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <path class="evo-laser-ambient" d="M 180 20 L 55 185 L 30 210 L 55 235 L 180 400" stroke="#00d2ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" filter="url(#evoGlowL)" />
+                    <path class="evo-laser-halo" d="M 180 20 L 55 185 L 30 210 L 55 235 L 180 400" stroke="url(#evoBladeGradL)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path class="evo-laser-core" d="M 175 25 L 56 188 L 36 210 L 56 232 L 175 395" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    <line class="evo-strake" x1="110" y1="115" x2="175" y2="90" stroke="rgba(0, 210, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+                    <line class="evo-strake" x1="130" y1="145" x2="185" y2="125" stroke="rgba(56, 189, 248, 0.55)" stroke-width="2" stroke-linecap="round" />
+                    <line class="evo-strake" x1="110" y1="305" x2="175" y2="330" stroke="rgba(0, 210, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+                    <line class="evo-strake" x1="130" y1="275" x2="185" y2="295" stroke="rgba(56, 189, 248, 0.55)" stroke-width="2" stroke-linecap="round" />
+                    <circle cx="30" cy="210" r="4.5" fill="#ffffff" filter="url(#evoGlowL)" />
+                </svg>
+            </div>
+
+            <div class="evo-blade-cluster evo-blade-right">
+                <svg class="evo-blade-svg" viewBox="0 0 200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="evoBladeGradR" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" />
+                            <stop offset="25%" stop-color="#00f0ff" />
+                            <stop offset="70%" stop-color="#00d2ff" />
+                            <stop offset="100%" stop-color="#0284c7" />
+                        </linearGradient>
+                        <filter id="evoGlowR" x="-40%" y="-40%" width="180%" height="180%">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur1" />
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur2" />
+                            <feMerge>
+                                <feMergeNode in="blur2" />
+                                <feMergeNode in="blur1" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <path class="evo-laser-ambient" d="M 20 20 L 145 185 L 170 210 L 145 235 L 20 400" stroke="#00d2ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.4" filter="url(#evoGlowR)" />
+                    <path class="evo-laser-halo" d="M 20 20 L 145 185 L 170 210 L 145 235 L 20 400" stroke="url(#evoBladeGradR)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path class="evo-laser-core" d="M 25 25 L 144 188 L 164 210 L 144 232 L 25 395" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    <line class="evo-strake" x1="90" y1="115" x2="25" y2="90" stroke="rgba(0, 210, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+                    <line class="evo-strake" x1="70" y1="145" x2="15" y2="125" stroke="rgba(56, 189, 248, 0.55)" stroke-width="2" stroke-linecap="round" />
+                    <line class="evo-strake" x1="90" y1="305" x2="25" y2="330" stroke="rgba(0, 210, 255, 0.75)" stroke-width="2.5" stroke-linecap="round" />
+                    <line class="evo-strake" x1="70" y1="275" x2="15" y2="295" stroke="rgba(56, 189, 248, 0.55)" stroke-width="2" stroke-linecap="round" />
+                    <circle cx="170" cy="210" r="4.5" fill="#ffffff" filter="url(#evoGlowR)" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="enter-card">
+            
+            <div class="enter-avatar-wrap">
+                <img src="avatar.png" alt="Avatar" class="enter-avatar-img">
+                <img src="avatar_decoration.png" alt="" class="enter-avatar-deco" aria-hidden="true">
+            </div>
+
+            <div class="enter-identity">
+                <h2 class="enter-name">Nguyễn Hoàng Anh</h2>
+                <p class="enter-subtext">Full Stack Developer @ Alex</p>
+            </div>
+
+            <div class="enter-action-btn">
+                <i class="fa-solid fa-play"></i>
+                <span>Vào trang cá nhân</span>
+            </div>
+
+            <div class="enter-audio-hint">
+                <i class="fa-solid fa-headphones-simple"></i>
+                <span>Nhạc nền đã sẵn sàng • Nhấp bất kỳ đâu để vào</span>
+            </div>
+        </div>
+    </div>
+
+    <audio id="bg-audio" preload="auto"></audio>
+
+    <div class="audio-widget evo-audio-dock" id="audio-widget" title="Điều khiển nhạc nền">
+        <div class="audio-disc evo-audio-disc" id="audio-disc">
+            <i class="fa-solid fa-compact-disc"></i>
+        </div>
+        <div class="audio-info">
+            <div class="audio-header-row">
+                <span class="audio-live-pill" id="audio-live-pill"><i class="fa-solid fa-compact-disc"></i> HQ AUDIO</span>
+                <span class="audio-track" id="audio-track-title">Tìm Em</span>
+            </div>
+            <div class="audio-artist" id="audio-artist-name">1/12 • Hngle ft. Bảo Anh</div>
+        </div>
+        <div class="audio-controls">
+            <button id="audio-prev-btn" class="ctrl-btn" aria-label="Bài trước" title="Bài trước (Previous)">
+                <i class="fa-solid fa-backward-step"></i>
+            </button>
+            <button id="audio-play-btn" class="ctrl-btn play-btn-main evo-play-btn" aria-label="Phát / Tạm dừng"
+                title="Phát / Tạm dừng">
+                <i class="fa-solid fa-play" id="play-icon"></i>
+            </button>
+            <button id="audio-next-btn" class="ctrl-btn" aria-label="Bài tiếp theo" title="Bài tiếp theo (Next)">
+                <i class="fa-solid fa-forward-step"></i>
+            </button>
+            <div class="equalizer evo-equalizer" id="equalizer">
+                <span class="bar bar-1"></span>
+                <span class="bar bar-2"></span>
+                <span class="bar bar-3"></span>
+                <span class="bar bar-4"></span>
+                <span class="bar bar-5"></span>
+            </div>
+            <div class="volume-slider-wrap">
+                <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.45" aria-label="Volume">
+            </div>
+        </div>
+    </div>
+
+    <main class="main-viewport">
+        <div class="card-tilt-container" id="tilt-container">
+            
+            <div class="evo-chassis-x" id="evo-chassis-x" aria-hidden="true">
+                <div class="evo-x-arm arm-top-left"></div>
+                <div class="evo-x-arm arm-bottom-left"></div>
+                <div class="evo-x-core"></div>
+                <div class="evo-x-arm arm-top-right"></div>
+                <div class="evo-x-arm arm-bottom-right"></div>
+            </div>
+
+            <div class="card-border-beam" aria-hidden="true"></div>
+
+            <article class="bio-card" id="bio-card">
+                
+                <div class="evo-corner-bracket evo-bracket-tl" aria-hidden="true"></div>
+                <div class="evo-corner-bracket evo-bracket-tr" aria-hidden="true"></div>
+                <div class="evo-corner-bracket evo-bracket-bl" aria-hidden="true"></div>
+                <div class="evo-corner-bracket evo-bracket-br" aria-hidden="true"></div>
+
+                <div class="card-glare" id="card-glare"></div>
+
+                <div class="card-banner" id="card-banner">
+                    <div class="banner-gradient"></div>
+                    <div class="banner-badge-top">
+                        <span class="live-dot-ping"></span>
+                        <span id="header-status-text">DISCORD LIVE</span>
+                    </div>
+                </div>
+
+                <section class="card-profile-bar">
+                    <div class="profile-main-info">
+                        <div class="avatar-wrapper" id="avatar-wrapper">
+                            <img src="avatar.png" alt="Avatar" id="profile-avatar" class="profile-avatar">
+                            <img src="avatar_decoration.png" alt="" class="avatar-decoration"
+                                id="profile-avatar-decoration" aria-hidden="true">
+                            <div class="status-indicator" id="status-indicator" title="Discord Status">
+                                <span class="status-dot"></span>
+                            </div>
+                        </div>
+
+                        <div class="user-meta">
+                            <div class="name-row">
+                                <h1 class="user-display-name" id="user-display-name">Nguyễn Hoàng Anh</h1>
+                                <span class="verified-badge" title="Verified Visionary">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </span>
+                            </div>
+                            <div class="handle-row">
+                                <span class="user-handle" id="user-handle">@hoanganh-alex</span>
+                                <button class="copy-tag-btn" id="copy-tag-btn" title="Sao chép Discord ID/Tag">
+                                    <i class="fa-regular fa-copy"></i>
+                                    <span class="tooltip">Copy Discord</span>
+                                </button>
+                                <button class="copy-tag-btn" id="copy-link-btn" title="Sao chép liên kết trang">
+                                    <i class="fa-solid fa-link"></i>
+                                    <span class="tooltip">Copy Link</span>
+                                </button>
+                                <span class="meta-dot-sep">•</span>
+                                <p class="user-tagline" id="user-tagline">Full Stack Developer @ Alex</p>
+                            </div>
+                            <div class="location-row">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span id="user-location">Việt Nam</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="badges-container" id="badges-container" aria-label="Huy hiệu đặc quyền">
+                        
+                    </div>
+                </section>
+
+                <div class="card-bento-body">
+                    
+                    <div class="bento-col bento-col-left">
+                        
+                        <div class="quote-box">
+                            <i class="fa-solid fa-hand-sparkles quote-icon"></i>
+                            <span class="quote-text" id="greeting-text"></span>
+                            <span class="typewriter-cursor" id="greeting-cursor">|</span>
+                        </div>
+
+                        <p class="user-bio" id="user-bio">
+                            Gen Z Developer đam mê nghiên cứu, luôn học hỏi và phát triển những giải pháp đột phá. Software Engineer tại Google, chuyên sâu về Full Stack (Web/App), AI Engineering, Game Dev & Reverse Engineering.
+                        </p>
+
+                        <section class="arsenal-section" id="arsenal-section">
+                            <div class="section-title">
+                                <i class="fa-solid fa-code"></i>
+                                <span>MY VIBES & HOBBIES</span>
+                            </div>
+                            <div class="arsenal-grid" id="arsenal-grid">
+                                <div class="arsenal-pill">
+                                    <div class="arsenal-icon-wrap">
+                                        <i class="fa-solid fa-gamepad"></i>
+                                    </div>
+                                    <div class="arsenal-info">
+                                        <span class="arsenal-name">Gaming</span>
+                                        <span class="arsenal-sub">PC • Mobile • Co-op</span>
+                                    </div>
+                                </div>
+                                <div class="arsenal-pill">
+                                    <div class="arsenal-icon-wrap">
+                                        <i class="fa-solid fa-headphones"></i>
+                                    </div>
+                                    <div class="arsenal-info">
+                                        <span class="arsenal-name">Nghe nhạc</span>
+                                        <span class="arsenal-sub">Lofi • Chill • V-Pop</span>
+                                    </div>
+                                </div>
+                                <div class="arsenal-pill">
+                                    <div class="arsenal-icon-wrap">
+                                        <i class="fa-solid fa-mug-hot"></i>
+                                    </div>
+                                    <div class="arsenal-info">
+                                        <span class="arsenal-name">Cà phê</span>
+                                        <span class="arsenal-sub">Sáng • Sữa đá • Góc chill</span>
+                                    </div>
+                                </div>
+                                <div class="arsenal-pill">
+                                    <div class="arsenal-icon-wrap">
+                                        <i class="fa-solid fa-plane"></i>
+                                    </div>
+                                    <div class="arsenal-info">
+                                        <span class="arsenal-name">Du lịch</span>
+                                        <span class="arsenal-sub">Biển • Núi • Khám phá</span>
+                                    </div>
+                                </div>
+                                <div class="arsenal-pill">
+                                    <div class="arsenal-icon-wrap">
+                                        <i class="fa-solid fa-camera"></i>
+                                    </div>
+                                    <div class="arsenal-info">
+                                        <span class="arsenal-name">Chụp ảnh</span>
+                                        <span class="arsenal-sub">Khoảnh khắc • Đời thường</span>
+                                    </div>
+                                </div>
+                                <div class="arsenal-pill">
+                                    <div class="arsenal-icon-wrap">
+                                        <i class="fa-solid fa-film"></i>
+                                    </div>
+                                    <div class="arsenal-info">
+                                        <span class="arsenal-name">Xem phim</span>
+                                        <span class="arsenal-sub">Anime • Phim lẻ • Series</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="bento-col bento-col-right">
+                        
+                        <section class="presence-section" id="presence-section">
+                            <div class="section-title">
+                                <i class="fa-brands fa-discord"></i>
+                                <span>DISCORD REALTIME PRESENCE</span>
+                                <div class="lanyard-ping" id="lanyard-ping" title="WebSocket Connected">
+                                    <span class="ping-wave"></span>
+                                    <span class="ping-core"></span>
+                                </div>
+                            </div>
+
+                            <div class="custom-status-card" id="custom-status-card">
+                                <div class="status-emoji" id="custom-status-emoji">💬</div>
+                                <div class="status-content">
+                                    <div class="status-label">CURRENT STATUS</div>
+                                    <div class="status-message" id="custom-status-text">Đang kết nối Discord Lanyard...
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="activity-card spotify-card" id="spotify-card" style="display: none;">
+                                <div class="spotify-art-wrap">
+                                    <img src="" alt="Spotify Album Art" id="spotify-album-art" class="spotify-art">
+                                    <div class="spotify-vinyl-center"></div>
+                                </div>
+                                <div class="spotify-details">
+                                    <div class="activity-badge spotify-badge">
+                                        <i class="fa-brands fa-spotify"></i> LISTENING TO SPOTIFY
+                                    </div>
+                                    <div class="track-title" id="spotify-track">Track Name</div>
+                                    <div class="track-artist" id="spotify-artist">Artist Name</div>
+                                    
+                                    <div class="spotify-progress-box">
+                                        <span class="time-stamp" id="spotify-time-current">0:00</span>
+                                        <div class="progress-track">
+                                            <div class="progress-fill" id="spotify-progress-fill"></div>
+                                        </div>
+                                        <span class="time-stamp" id="spotify-time-total">3:45</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="activity-card game-card" id="game-card" style="display: none;">
+                                <div class="game-art-wrap">
+                                    <img src="" alt="Activity Image" id="game-art" class="game-art">
+                                </div>
+                                <div class="game-details">
+                                    <div class="activity-badge game-badge" id="game-badge">
+                                        <i class="fa-solid fa-gamepad"></i> CURRENT ACTIVITY
+                                    </div>
+                                    <div class="game-name" id="game-name">Visual Studio Code</div>
+                                    <div class="game-state" id="game-state">Editing index.html</div>
+                                    <div class="game-details-text" id="game-details-text">Workspace: RyzenBio</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="servers-section">
+                            <div class="section-title">
+                                <i class="fa-solid fa-server"></i>
+                                <span>AFFILIATED DISCORD SERVERS</span>
+                            </div>
+
+                            <div class="servers-grid" id="servers-grid">
+                                
+                            </div>
+                        </section>
+
+                        <section class="socials-section">
+                            <div class="section-title">
+                                <i class="fa-solid fa-link"></i>
+                                <span>DIRECT CONNECTIONS</span>
+                            </div>
+                            <div class="socials-list" id="socials-list">
+                                
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+                <footer class="card-footer">
+                    <div class="footer-left footer-capsule">
+                        <i class="fa-regular fa-clock footer-icon"></i>
+                        <span id="local-time">00:00:00 (GMT+7)</span>
+                    </div>
+                    <div class="footer-center">
+                        <div class="brand-insignia">
+                            <span class="insignia-crest">✦</span>
+                            <span class="mono-logo">NGUYỄN HOÀNG ANH</span>
+                            <span class="insignia-sep">•</span>
+                            <span class="insignia-sub">ALEX</span>
+                        </div>
+                    </div>
+                    <div class="footer-right footer-capsule">
+                        <span class="telemetry-live-dot"></span>
+                        <i class="fa-solid fa-signal telemetry-icon"></i>
+                        <span id="ping-indicator">17ms • 100% ONLINE</span>
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="config.js?v=17.0"></script>
+    <script src="script.js?v=17.0"></script>
+</body>
+
+</html>
