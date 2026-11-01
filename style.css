@@ -387,9 +387,18 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     min-height: 100vh;
     overflow-x: hidden;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     padding: 24px 16px;
+    box-sizing: border-box;
+}
+
+.btn-text-short {
+    display: none;
+}
+
+.btn-text-full {
+    display: inline;
 }
 
 .window-frame {
@@ -1589,10 +1598,23 @@ button:focus-visible, a:focus-visible, input:focus-visible {
 /* Smart Phones & Phablets (<= 640px) */
 @media (max-width: 640px) {
     .desktop-viewport {
-        padding: 6px 4px;
+        padding: 8px 6px;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     .window-frame {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
         border-radius: 12px;
     }
 
@@ -1600,11 +1622,14 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     .window-titlebar {
         height: 36px;
         padding: 0 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .traffic-lights {
         width: auto;
         gap: 6px;
+        flex-shrink: 0;
     }
 
     .traffic-btn {
@@ -1615,24 +1640,33 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     .titlebar-center {
         gap: 4px;
         font-size: 10.5px;
+        min-width: 0;
+        overflow: hidden;
+        flex: 1;
+        justify-content: center;
     }
 
     .titlebar-pid,
     .titlebar-sep {
-        display: none;
+        display: none !important;
     }
 
     .titlebar-title {
         font-size: 10.5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .titlebar-status-pill {
         padding: 1px 5px;
         font-size: 9px;
+        flex-shrink: 0;
     }
 
     .titlebar-right {
         width: auto;
+        flex-shrink: 0;
     }
 
     .titlebar-btn {
@@ -1640,9 +1674,14 @@ button:focus-visible, a:focus-visible, input:focus-visible {
         font-size: 10px;
     }
 
+    #theme-label {
+        display: none !important;
+    }
+
     /* Mobile Hero Banner */
     .hero-banner-container {
-        height: 105px;
+        height: 100px;
+        width: 100%;
     }
 
     .hero-banner-pill {
@@ -1657,61 +1696,104 @@ button:focus-visible, a:focus-visible, input:focus-visible {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        margin-top: -34px;
-        padding: 0 12px 14px;
+        margin-top: -32px;
+        padding: 0 10px 14px;
         gap: 8px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .hero-avatar-box {
-        width: 72px;
-        height: 72px;
+        width: 68px;
+        height: 68px;
     }
 
     .hero-identity-meta {
         padding-top: 0;
         align-items: center;
         width: 100%;
+        min-width: 0;
         gap: 6px;
+        box-sizing: border-box;
     }
 
     .hero-meta-top {
         align-items: center;
         width: 100%;
+        min-width: 0;
         gap: 8px;
+        box-sizing: border-box;
     }
 
     .hero-name-row {
         justify-content: center;
+        width: 100%;
     }
 
     .user-display-name {
         font-size: 16px;
+        text-align: center;
     }
 
-    /* 3-column equal action buttons on mobile */
+    /* 3-column equal action buttons on mobile - NO OVERFLOW */
     .hero-actions-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        width: 100%;
-        gap: 4px;
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 4px !important;
+        box-sizing: border-box !important;
     }
 
-    .tech-btn {
-        height: 28px;
-        padding: 0 4px;
-        font-size: 10px;
-        gap: 4px;
+    .hero-actions-row .chamfer-btn-wrap {
+        width: 100% !important;
+        min-width: 0 !important;
+        display: block !important;
+        box-sizing: border-box !important;
     }
 
+    .hero-actions-row .tech-btn {
+        width: 100% !important;
+        min-width: 0 !important;
+        height: 28px !important;
+        padding: 0 4px !important;
+        font-size: 10px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 4px !important;
+        box-sizing: border-box !important;
+    }
+
+    .btn-text-full {
+        display: none !important;
+    }
+
+    .btn-text-short {
+        display: inline !important;
+    }
+
+    /* Stacked & Centered Mobile Handle / Sub Info */
     .hero-meta-sub {
-        justify-content: center;
-        font-size: 10.5px;
-        row-gap: 2px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 3px !important;
+        font-size: 10.5px !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    .hero-meta-sub .meta-sep {
+        display: none !important;
     }
 
     .badges-row {
         justify-content: center;
         gap: 4px;
+        width: 100%;
+        flex-wrap: wrap;
     }
 
     .badge-pill {
@@ -1723,115 +1805,232 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     .window-body {
         padding: 10px 8px;
         gap: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .bento-col {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
     }
 
     .chamfer-panel {
-        padding: 10px 10px;
+        padding: 10px 8px;
         gap: 8px;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .panel-header {
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .arsenal-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 5px;
         max-height: none;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .chamfer-pill-wrap {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
     }
 
     .arsenal-pill {
         padding: 6px 8px;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .pill-info {
+        min-width: 0;
+        overflow: hidden;
     }
 
     .pill-icon {
         font-size: 12px;
+        flex-shrink: 0;
     }
 
     .pill-name {
         font-size: 10.5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .pill-sub {
         font-size: 9px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .socials-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .chamfer-social-wrap {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
     }
 
     .social-pill {
         padding: 5px 7px;
         font-size: 10px;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .social-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     /* Server Card Mobile */
+    .chamfer-server-wrap {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
     .server-card {
-        padding: 8px 8px;
+        padding: 7px 8px;
         flex-wrap: wrap;
         gap: 6px;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
     }
 
     .server-body {
-        flex: 1 1 160px;
+        flex: 1 1 140px;
+        min-width: 0;
+    }
+
+    .server-name {
+        font-size: 10.5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .server-join-btn {
         height: 24px;
         padding: 0 8px;
-        font-size: 10px;
+        font-size: 9.5px;
+        flex-shrink: 0;
     }
 
     /* Presence Card Mobile */
     .presence-status-box {
         padding: 7px 9px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .activity-card {
         padding: 7px 9px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .spotify-art-wrap,
     .game-art-wrap {
-        width: 38px;
-        height: 38px;
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+    }
+
+    .activity-content {
+        min-width: 0;
+    }
+
+    .activity-title,
+    .activity-sub,
+    .activity-detail {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     /* Audio Player Mobile */
     .audio-panel {
         gap: 6px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .audio-top-line {
         flex-wrap: wrap;
         gap: 4px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .audio-track-info {
         max-width: 100%;
-        flex: 1 1 160px;
+        flex: 1 1 140px;
+        min-width: 0;
+    }
+
+    .audio-track,
+    .audio-artist {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .audio-controls-row {
         gap: 6px;
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: space-between;
     }
 
     .volume-box {
         max-width: 80px;
     }
 
+    .volume-slider {
+        width: 48px;
+    }
+
     /* Footer Mobile */
     .window-footer {
         height: auto;
-        min-height: 30px;
-        padding: 5px 10px;
-        font-size: 9.5px;
+        min-height: 28px;
+        padding: 5px 8px;
+        font-size: 9px;
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: space-between;
     }
 
     .footer-center-meta {
-        display: none; /* Hide long build meta to prevent text clash */
+        display: none !important; /* Hide long build meta to prevent text clash */
     }
 
     /* Launcher Frame Mobile */
     .launcher-frame {
-        max-width: 94vw;
+        max-width: 92vw;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .launcher-body {
@@ -1840,8 +2039,8 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     }
 
     .launcher-avatar-wrap {
-        width: 62px;
-        height: 62px;
+        width: 60px;
+        height: 60px;
     }
 
     .launcher-name {
@@ -1854,17 +2053,39 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     }
 }
 
-/* Small Phones (<= 400px - iPhone SE, Galaxy A series, etc.) */
-@media (max-width: 400px) {
+/* Small Phones (<= 420px - iPhone SE, Galaxy S/A series, etc.) */
+@media (max-width: 420px) {
+    .desktop-viewport {
+        padding: 6px 4px;
+    }
+
     .arsenal-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 
     .socials-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 
-    .tech-btn span {
-        font-size: 9.5px;
+    .hero-actions-row .tech-btn {
+        font-size: 9.5px !important;
+        gap: 3px !important;
+    }
+
+    .audio-controls-row {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .volume-box {
+        display: none; /* Hide volume slider on very narrow phones to preserve seek track */
+    }
+
+    .toast-container {
+        bottom: 16px;
+        right: 50% !important;
+        transform: translateX(50%) !important;
+        width: calc(100% - 24px) !important;
+        max-width: 340px !important;
     }
 }

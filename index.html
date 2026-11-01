@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>alex // chamfer-tech profile</title>
-    <meta name="description" content="Trang cá nhân và dashboard kỹ thuật của Nguyễn Hoàng Anh (Alex) - Chamfer Tech Desktop UI.">
+    <meta name="description"
+        content="Trang cá nhân và dashboard kỹ thuật của Nguyễn Hoàng Anh (Alex) - Chamfer Tech Desktop UI.">
     <meta property="og:title" content="Nguyễn Hoàng Anh (Alex) • Profile">
     <meta property="og:description" content="Full Stack Developer @ Alex • Chamfer Tech Minimal UI">
     <meta property="og:type" content="website">
@@ -14,7 +15,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -86,15 +88,18 @@
             <!-- macOS titlebar (Traffic Lights top-left with real interactions, minimal, drag region) -->
             <header class="window-titlebar drag-region" id="window-titlebar">
                 <div class="traffic-lights" aria-label="window controls">
-                    <button class="traffic-btn traffic-close" id="titlebar-close-btn" title="close / return to launcher" aria-label="close"></button>
-                    <button class="traffic-btn traffic-min" id="titlebar-min-btn" title="minimize / compact layout" aria-label="minimize"></button>
-                    <button class="traffic-btn traffic-max" id="titlebar-max-btn" title="re-run pipeline / sync" aria-label="re-run sequence"></button>
+                    <button class="traffic-btn traffic-close" id="titlebar-close-btn" title="close / return to launcher"
+                        aria-label="close"></button>
+                    <button class="traffic-btn traffic-min" id="titlebar-min-btn" title="minimize / compact layout"
+                        aria-label="minimize"></button>
+                    <button class="traffic-btn traffic-max" id="titlebar-max-btn" title="re-run pipeline / sync"
+                        aria-label="re-run sequence"></button>
                 </div>
 
                 <div class="titlebar-center">
                     <span class="titlebar-pid">PID 8421</span>
                     <span class="titlebar-sep">/</span>
-                    <span class="titlebar-title">alex // profile-client</span>
+                    <span class="titlebar-title">alex</span>
                     <span class="titlebar-status-pill">
                         <span class="status-indicator" id="status-indicator">
                             <span class="status-dot online"></span>
@@ -115,7 +120,8 @@
             <section class="profile-hero-section">
                 <!-- Banner with crisp chamfer frame -->
                 <div class="hero-banner-container">
-                    <div class="hero-banner" id="card-banner" style="background-image: url('images/apollo_evo_banner.jpg');"></div>
+                    <div class="hero-banner" id="card-banner"
+                        style="background-image: url('images/apollo_evo_banner.jpg');"></div>
                     <div class="hero-banner-overlay"></div>
                     <div class="hero-banner-pill">
                         <span class="telemetry-live-dot"></span>
@@ -128,7 +134,8 @@
                     <div class="hero-avatar-wrapper">
                         <div class="hero-avatar-box">
                             <img src="images/avatar.png" alt="Avatar" id="profile-avatar" class="profile-avatar">
-                            <img src="images/avatar_decoration.png" alt="" class="avatar-decoration" id="profile-avatar-decoration" aria-hidden="true">
+                            <img src="images/avatar_decoration.png" alt="" class="avatar-decoration"
+                                id="profile-avatar-decoration" aria-hidden="true">
                             <div class="avatar-status-badge" title="Discord Status">
                                 <span class="status-dot online"></span>
                             </div>
@@ -139,26 +146,30 @@
                         <div class="hero-meta-top">
                             <div class="hero-name-row">
                                 <h1 class="user-display-name" id="user-display-name">Nguyễn Hoàng Anh</h1>
-                                <span class="verified-icon" title="verified engineer"><i class="fa-solid fa-circle-check"></i></span>
+                                <span class="verified-icon" title="verified engineer"><i
+                                        class="fa-solid fa-circle-check"></i></span>
                             </div>
 
                             <div class="hero-actions-row">
                                 <div class="chamfer-btn-wrap">
                                     <button class="tech-btn" id="copy-tag-btn" title="copy discord id">
                                         <i class="fa-brands fa-discord"></i>
-                                        <span>copy discord</span>
+                                        <span class="btn-text-full">copy discord</span>
+                                        <span class="btn-text-short">discord</span>
                                     </button>
                                 </div>
                                 <div class="chamfer-btn-wrap">
                                     <button class="tech-btn" id="copy-link-btn" title="copy page url">
                                         <i class="fa-solid fa-link"></i>
-                                        <span>copy link</span>
+                                        <span class="btn-text-full">copy link</span>
+                                        <span class="btn-text-short">link</span>
                                     </button>
                                 </div>
                                 <div class="chamfer-btn-wrap">
                                     <button class="tech-btn" id="sync-telemetry-btn" title="sync telemetry payload">
                                         <i class="fa-solid fa-arrows-rotate"></i>
-                                        <span>sync payload</span>
+                                        <span class="btn-text-full">sync payload</span>
+                                        <span class="btn-text-short">sync</span>
                                     </button>
                                 </div>
                             </div>
@@ -169,7 +180,8 @@
                             <span class="meta-sep">•</span>
                             <span class="user-tagline" id="user-tagline">Full Stack Developer @ Alex</span>
                             <span class="meta-sep">•</span>
-                            <span class="user-location-box"><i class="fa-solid fa-location-dot"></i> <span id="user-location">Việt Nam</span></span>
+                            <span class="user-location-box"><i class="fa-solid fa-location-dot"></i> <span
+                                    id="user-location">Việt Nam</span></span>
                         </div>
 
                         <div class="badges-row" id="badges-container" aria-label="technical badges"></div>
@@ -194,7 +206,9 @@
                                 <span class="typewriter-cursor" id="greeting-cursor">_</span>
                             </div>
                             <p class="user-bio" id="user-bio">
-                                Gen Z Developer đam mê nghiên cứu, luôn học hỏi và phát triển những giải pháp đột phá. Software Engineer tại Google, chuyên sâu về Full Stack (Web/App), AI Engineering, Game Dev & Reverse Engineering.
+                                Gen Z Developer đam mê nghiên cứu, luôn học hỏi và phát triển những giải pháp đột phá.
+                                Software Engineer tại Google, chuyên sâu về Full Stack (Web/App), AI Engineering, Game
+                                Dev & Reverse Engineering.
                             </p>
                         </div>
                     </div>
@@ -280,7 +294,8 @@
                                 <span class="status-emoji" id="custom-status-emoji">💬</span>
                                 <div class="status-content">
                                     <div class="status-sub">current status</div>
-                                    <div class="status-message" id="custom-status-text">Đang kết nối Discord Lanyard...</div>
+                                    <div class="status-message" id="custom-status-text">Đang kết nối Discord Lanyard...
+                                    </div>
                                 </div>
                             </div>
 
@@ -379,7 +394,8 @@
 
                                 <div class="volume-box">
                                     <i class="fa-solid fa-volume-low volume-icon"></i>
-                                    <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.45" aria-label="volume">
+                                    <input type="range" id="volume-slider" min="0" max="1" step="0.05" value="0.45"
+                                        aria-label="volume">
                                 </div>
                             </div>
                         </div>
