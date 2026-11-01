@@ -2,5 +2,6 @@
 Thumbs.db
 *.tmp
 *.log
+*.zip
 .vscode/
 .idea/
