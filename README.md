@@ -26,4 +26,4 @@ Giao diện Desktop Dashboard & Client Tool hiện đại thiết kế chuẩn t
 * **Vanilla JavaScript ES6+** & Web Audio API Synthesizer (phản hồi âm thanh click dứt khoát).
 
 ## Demo
-* **[Vanilla JavaScript ES6+](https://hoanganh-alex.github.io/profile/)**.
+* **[Alex](https://hoanganh-alex.github.io/profile/)**.
