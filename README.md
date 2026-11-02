@@ -4,7 +4,7 @@ Giao diện Desktop Dashboard & Client Tool hiện đại thiết kế chuẩn t
 
 ---
 
-## ⚡ Đặc Trưng Kỹ Thuật (Specification)
+## Đặc Trưng Kỹ Thuật (Specification)
 
 * **Chuẩn chamfer geometry:** Cắt vát góc trên bên trái (`clip-path: polygon(...)`) kết hợp kiến trúc 2-layer wrapper giữ viền 1px sắc nét.
 * **Khung macOS Window Frame:** Bo góc `16px`, viền Slate siêu mỏng, bóng mềm tự nhiên, không glow, không dải màu neon.
@@ -18,9 +18,12 @@ Giao diện Desktop Dashboard & Client Tool hiện đại thiết kế chuẩn t
 
 ---
 
-## 🛠️ Công Nghệ Sử Dụng
+## Công Nghệ Sử Dụng
 
 * **HTML5 Semantic & Modern CSS3** (Mica/Acrylic `backdrop-filter: blur(30px)`, `clip-path` wrapper pattern, `mask-image`).
 * **JetBrains Mono** & **FontAwesome 6**.
 * **Discord Lanyard WebSocket API** (`wss://api.lanyard.rest/socket`) & REST fallback.
 * **Vanilla JavaScript ES6+** & Web Audio API Synthesizer (phản hồi âm thanh click dứt khoát).
+
+## Demo
+* **[Vanilla JavaScript ES6+](https://hoanganh-alex.github.io/profile/)**.
